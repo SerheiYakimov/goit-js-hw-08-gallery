@@ -63,3 +63,31 @@ const galleryItems = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+
+const gallery = document.querySelector('.js-gallery');
+
+const galleryEl = galleryItems.map(element => {
+  const galleryItemsEl = `<li class="gallery__item">
+  <a
+    class="gallery__link"
+    href="${element.original}"
+  >
+    <img
+      class="gallery__image"
+      src="${element.preview}"
+      data-source="${element.original}"
+      alt="${element.discription}"
+    />
+  </a>
+  </li>`
+  return galleryItemsEl;
+  
+});
+
+console.log(galleryEl);
+
+gallery.insertAdjacentHTML('afterbegin', galleryEl.join(''));
+
+
+
+
