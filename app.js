@@ -66,6 +66,8 @@ const galleryItems = [
 const refs = {
   gallery: document.querySelector('.js-gallery'),
   lightbox: document.querySelector('.js-lightbox'),
+  galleryImage: document.querySelector('.gallery__image.dataset.value'),
+  lightboxImage: document.querySelector('.lightbox__image'),
 }
 
 
@@ -88,7 +90,7 @@ const galleryEl = galleryItems.map(element => {
 
 refs.gallery.insertAdjacentHTML('afterbegin', galleryEl.join(''));
 
-console.log(refs.gallery);
+
 
 refs.gallery.addEventListener('click', onOpenModal);
 
@@ -99,12 +101,14 @@ function onOpenModal(e) {
   }
 
   refs.lightbox.classList.replace('lightbox', '.lightbox.is-open');
+  refs.lightboxImage.setAttribute('src', 'e.target.dataset.source');
+  refs.lightboxImage.setAttribute('alt', 'e.target.alt');
+ 
+};
+
+  // console.log(refs.gallery);
 
   
-}
-
-
-
 
 
 
