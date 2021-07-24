@@ -99,7 +99,7 @@ function onOpenModal(e) {
     return;
   }
   
-  refs.lightbox.classList.replace('lightbox', 'lightbox.is-open');
+  refs.lightbox.classList.add('is-open');
   refs.lightboxImage.setAttribute('src', e.target.dataset.source);
   refs.lightboxImage.setAttribute('alt', e.target.alt); 
   console.log(refs.lightboxImage);
@@ -112,7 +112,7 @@ function onCloseModal(e) {
     return;
   }
 
-  refs.lightbox.classList.replace('lightbox.is-open', 'lightbox');
+  refs.lightbox.classList.remove('is-open');
   refs.lightboxImage.setAttribute('src', '');
   refs.lightboxImage.setAttribute('alt', '');
   console.log(refs.lightboxImage);
