@@ -63,6 +63,7 @@ const galleryItems = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+
 const refs = {
   gallery: document.querySelector('.js-gallery'),
   lightbox: document.querySelector('.lightbox'),
@@ -71,7 +72,6 @@ const refs = {
   lightboxOverlay: document.querySelector('.lightbox__overlay'),
 
 }
-
 
 const galleryEl = galleryItems.map(element => {
   const galleryItemsEl = `<li class="gallery__item">
@@ -93,11 +93,12 @@ const galleryEl = galleryItems.map(element => {
 refs.gallery.insertAdjacentHTML('afterbegin', galleryEl.join(''));
 
 refs.gallery.addEventListener('click', onOpenModal);
-refs.buttonClose.addEventListener('click', onBtnCloseModal);
+refs.buttonClose.addEventListener('click', onCloseModal);
 refs.lightboxOverlay.addEventListener('click', onOverlayCloseModal);
-window.addEventListener('keydown', onEscCloseModal)
+
 
 function onOpenModal(e) {
+  window.addEventListener('keydown', onEscCloseModal);
   e.preventDefault();
   if (e.target.nodeName !== 'IMG') {
     return;
@@ -109,8 +110,8 @@ function onOpenModal(e) {
   
 };
 
-function onBtnCloseModal(e) {
-  if (e.target.nodeName !== 'BUTTON') {
+function onCloseModal(e) {
+    if (e.target.nodeName !== 'BUTTON') {
     return;
   }
 
@@ -121,21 +122,28 @@ function onBtnCloseModal(e) {
 };
 
 function onOverlayCloseModal(e) {
-  if (!e.target.classList.contains('lightbox__overlay'))
+  if (!e.target.classList.contains('lightbox__overlay')) {
     return;
-  
+  }
+
   refs.lightbox.classList.remove('is-open');
   refs.lightboxImage.setAttribute('src', '');
   refs.lightboxImage.setAttribute('alt', '');
 };
 
-console.log('я нажал клавишу', keyboardEvent.key);
+function onEscCloseModal(e) {
+  if (e.code !== 'Escape') {
+    return;
+  }
 
-// function onEscCloseModal(e) {
-//   if (e.target.keyboardEvent.key !=== 'ESC') {
-//     return;
-//   }
-// }
+  window.removeEventListener('keydown', onEscCloseModal);
+
+  refs.lightbox.classList.remove('is-open');
+  refs.lightboxImage.setAttribute('src', '');
+  refs.lightboxImage.setAttribute('alt', '');
+}
+
+
 
 
 
