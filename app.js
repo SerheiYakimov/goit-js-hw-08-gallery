@@ -66,6 +66,7 @@ const galleryItems = [
 
 const refs = {
   gallery: document.querySelector('.js-gallery'),
+  galleryImage: document.querySelector('.gallery__image'),
   lightbox: document.querySelector('.lightbox'),
   lightboxImage: document.querySelector('.lightbox__image'),
   buttonClose: document.querySelector('button[data-action="close-lightbox"]'),
@@ -98,7 +99,10 @@ refs.lightboxOverlay.addEventListener('click', onOverlayCloseModal);
 
 
 function onOpenModal(e) {
+  
   window.addEventListener('keydown', onEscCloseModal);
+  window.addEventListener('keydown', onArrowRight);
+  window.addEventListener('keydown', onArrowLeft);
   e.preventDefault();
   if (e.target.nodeName !== 'IMG') {
     return;
@@ -132,6 +136,7 @@ function onOverlayCloseModal(e) {
 };
 
 function onEscCloseModal(e) {
+  console.log(e.code);
   if (e.code !== 'Escape') {
     return;
   }
@@ -141,7 +146,28 @@ function onEscCloseModal(e) {
   refs.lightbox.classList.remove('is-open');
   refs.lightboxImage.setAttribute('src', '');
   refs.lightboxImage.setAttribute('alt', '');
-}
+};
+
+function onArrowLeft(e) {
+  if (e.code !== 'Arrowleft') {
+    return;
+  }
+
+  const indexImage = galleryItems.forEach
+
+  
+  
+
+};
+
+function onArrowRight(e) {
+  if (e.code !== 'Arrowleft') {
+    return;
+  }
+
+  gallery.nextElementSibling;
+
+};
 
 
 
