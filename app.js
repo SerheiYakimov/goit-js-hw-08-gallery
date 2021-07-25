@@ -95,6 +95,7 @@ refs.gallery.insertAdjacentHTML('afterbegin', galleryEl.join(''));
 refs.gallery.addEventListener('click', onOpenModal);
 refs.buttonClose.addEventListener('click', onBtnCloseModal);
 refs.lightboxOverlay.addEventListener('click', onOverlayCloseModal);
+window.addEventListener('keydown', onEscCloseModal)
 
 function onOpenModal(e) {
   e.preventDefault();
@@ -126,7 +127,15 @@ function onOverlayCloseModal(e) {
   refs.lightbox.classList.remove('is-open');
   refs.lightboxImage.setAttribute('src', '');
   refs.lightboxImage.setAttribute('alt', '');
-  }
+};
+
+console.log('я нажал клавишу', keyboardEvent.key);
+
+// function onEscCloseModal(e) {
+//   if (e.target.keyboardEvent.key !=== 'ESC') {
+//     return;
+//   }
+// }
 
 
 
