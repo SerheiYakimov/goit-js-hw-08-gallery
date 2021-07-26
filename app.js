@@ -101,8 +101,8 @@ refs.lightboxOverlay.addEventListener('click', onOverlayCloseModal);
 function onOpenModal(e) {
   
   window.addEventListener('keydown', onEscCloseModal);
-  window.addEventListener('keydown', onArrowRight);
-  window.addEventListener('keydown', onArrowLeft);
+  // window.addEventListener('keydown', onArrowRight);
+  // window.addEventListener('keydown', onArrowLeft);
   e.preventDefault();
   if (e.target.nodeName !== 'IMG') {
     return;
@@ -112,6 +112,7 @@ function onOpenModal(e) {
   refs.lightboxImage.setAttribute('src', e.target.dataset.source);
   refs.lightboxImage.setAttribute('alt', e.target.alt); 
   
+   
 };
 
 function onCloseModal(e) {
@@ -148,26 +149,36 @@ function onEscCloseModal(e) {
   refs.lightboxImage.setAttribute('alt', '');
 };
 
-function onArrowLeft(e) {
-  if (e.code !== 'Arrowleft') {
-    return;
-  }
-
-  const indexImage = galleryItems.forEach
-
+// function onArrowLeft(e) {
+//   if (e.code !== 'Arrowleft') {
+//     return;
+//   }
   
-  
+//   refs.lightboxImage.setAttribute('src', e.target.dataset.source);
+//   refs.lightboxImage.setAttribute('alt', e.target.alt); 
 
-};
+// };
 
-function onArrowRight(e) {
-  if (e.code !== 'Arrowleft') {
-    return;
-  }
+// function onArrowRight(e) {
+//   if (e.code !== 'Arrowleft') {
+//     return;
+//   }
 
-  gallery.nextElementSibling;
+//   refs.lightboxImage.setAttribute('src', e.target.dataset.source += 1);
+//   refs.lightboxImage.setAttribute('alt', e.target.alt += 1); 
 
-};
+// };
+
+// function onFindIndex(e) {
+//   // console.log(e.target);
+
+//   const index = galleryEl.forEach(element => galleryEl.indexOf(element));
+//   if (index === e.target) {
+//     refs.lightboxImage.setAttribute('src', '');
+//     refs.lightboxImage.setAttribute('alt', '');
+//   }
+// };
+
 
 
 
