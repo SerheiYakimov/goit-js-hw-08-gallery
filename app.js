@@ -97,6 +97,31 @@ refs.gallery.insertAdjacentHTML('afterbegin', galleryEl.join(''));
 refs.gallery.addEventListener('click', onOpenModal);
 refs.buttonClose.addEventListener('click', onCloseModal);
 refs.lightboxOverlay.addEventListener('click', onOverlayCloseModal);
+// refs.gallery.addEventListener('click', onFindIndex);
+
+
+
+// function onFindIndex(e) {
+
+// const index = galleryEl.findIndex(el => el.name === );
+// console.log(index);
+
+//   galleryEl.forEach(e.target => {
+//     e.target);
+    
+// };
+
+  
+  //
+  // console.log(e.target.src);
+  // const index = galleryItems.forEach(el => console.log( galleryItems.indexOf(el)));
+//   galleryEl.forEach(el => {
+//     const index = galleryEl.indexOf(el);
+//     return index;
+  
+//   });
+
+//  };
 
 
 
@@ -105,23 +130,16 @@ function onOpenModal(e) {
   window.addEventListener('keydown', onEscCloseModal);
   // window.addEventListener('keydown', onArrowRight);
   // window.addEventListener('keydown', onArrowLeft);
+  
   e.preventDefault();
+ 
   if (e.target.nodeName !== 'IMG') {
     return;
   }
   
   refs.lightbox.classList.add('is-open');
   refs.lightboxImage.setAttribute('src', e.target.dataset.source);
-  refs.lightboxImage.setAttribute('alt', e.target.alt); 
-  
-  // const currentIndex = galleryItems.findIndex(e => e.target.image);
-
-  // // const index = Data.findIndex(item => item.name === 'John');
-
-  
-  // console.log('индекс равен:', currentIndex);
-  
-   
+  refs.lightboxImage.setAttribute('alt', e.target.alt);    
 };
 
 function onCloseModal(e) {
@@ -163,8 +181,9 @@ function onEscCloseModal(e) {
 //     return;
 //   }
   
-//   refs.lightboxImage.setAttribute('src', e.target.dataset.source);
-//   refs.lightboxImage.setAttribute('alt', e.target.alt); 
+
+//   refs.lightboxImage.setAttribute('src', index++);
+//   refs.lightboxImage.setAttribute('alt', index++); 
 
 // };
 
@@ -176,16 +195,6 @@ function onEscCloseModal(e) {
 //   refs.lightboxImage.setAttribute('src', e.target.dataset.source += 1);
 //   refs.lightboxImage.setAttribute('alt', e.target.alt += 1); 
 
-// };
-
-// function onFindIndex(e) {
-//   // console.log(e.target);
-
-//   const index = galleryEl.forEach(element => galleryEl.indexOf(element));
-//   if (index === e.target) {
-//     refs.lightboxImage.setAttribute('src', '');
-//     refs.lightboxImage.setAttribute('alt', '');
-//   }
 // };
 
 
