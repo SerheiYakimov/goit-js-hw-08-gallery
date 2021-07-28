@@ -71,6 +71,7 @@ const refs = {
   lightboxImage: document.querySelector('.lightbox__image'),
   buttonClose: document.querySelector('button[data-action="close-lightbox"]'),
   lightboxOverlay: document.querySelector('.lightbox__overlay'),
+  
 
 }
 
@@ -98,6 +99,7 @@ refs.buttonClose.addEventListener('click', onCloseModal);
 refs.lightboxOverlay.addEventListener('click', onOverlayCloseModal);
 
 
+
 function onOpenModal(e) {
   
   window.addEventListener('keydown', onEscCloseModal);
@@ -111,6 +113,13 @@ function onOpenModal(e) {
   refs.lightbox.classList.add('is-open');
   refs.lightboxImage.setAttribute('src', e.target.dataset.source);
   refs.lightboxImage.setAttribute('alt', e.target.alt); 
+  
+  // const currentIndex = galleryItems.findIndex(e => e.target.image);
+
+  // // const index = Data.findIndex(item => item.name === 'John');
+
+  
+  // console.log('индекс равен:', currentIndex);
   
    
 };
