@@ -97,39 +97,14 @@ refs.gallery.insertAdjacentHTML('afterbegin', galleryEl.join(''));
 refs.gallery.addEventListener('click', onOpenModal);
 refs.buttonClose.addEventListener('click', onCloseModal);
 refs.lightboxOverlay.addEventListener('click', onOverlayCloseModal);
-// refs.gallery.addEventListener('click', onFindIndex);
-
-
-
-// function onFindIndex(e) {
-
-// const index = galleryEl.findIndex(el => el.name === );
-// console.log(index);
-
-//   galleryEl.forEach(e.target => {
-//     e.target);
-    
-// };
-
-  
-  //
-  // console.log(e.target.src);
-  // const index = galleryItems.forEach(el => console.log( galleryItems.indexOf(el)));
-//   galleryEl.forEach(el => {
-//     const index = galleryEl.indexOf(el);
-//     return index;
-  
-//   });
-
-//  };
-
+refs.gallery.addEventListener('click', onFindIndex);
 
 
 function onOpenModal(e) {
   
   window.addEventListener('keydown', onEscCloseModal);
-  // window.addEventListener('keydown', onArrowRight);
-  // window.addEventListener('keydown', onArrowLeft);
+  window.addEventListener('keydown', onArrowRight);
+  window.addEventListener('keydown', onArrowLeft);
   
   e.preventDefault();
  
@@ -176,27 +151,36 @@ function onEscCloseModal(e) {
   refs.lightboxImage.setAttribute('alt', '');
 };
 
-// function onArrowLeft(e) {
-//   if (e.code !== 'Arrowleft') {
-//     return;
-//   }
+function onArrowLeft(e) {
+  if (e.code !== 'Arrowleft') {
+    return;
+  }
   
 
-//   refs.lightboxImage.setAttribute('src', index++);
-//   refs.lightboxImage.setAttribute('alt', index++); 
+  refs.lightboxImage.setAttribute('src', index - 1);
+  refs.lightboxImage.setAttribute('alt', index++); 
 
-// };
+};
 
-// function onArrowRight(e) {
-//   if (e.code !== 'Arrowleft') {
-//     return;
-//   }
+function onArrowRight(e) {
+  if (e.code !== 'Arrowleft') {
+    return;
+  }
+  
+  refs.lightboxImage.setAttribute('src', el.index + 1);
+  refs.lightboxImage.setAttribute('alt', el.index + 1); 
 
-//   refs.lightboxImage.setAttribute('src', e.target.dataset.source += 1);
-//   refs.lightboxImage.setAttribute('alt', e.target.alt += 1); 
+};
 
-// };
-
+function onFindIndex(e) {
+ galleryItems.forEach(el => {
+    if (el.preview !== e.target.src) {
+      return;
+    }
+    const index = galleryItems.indexOf(el)
+    console.log(index);
+  });
+};
 
 
 
