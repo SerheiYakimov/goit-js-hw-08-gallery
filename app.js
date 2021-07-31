@@ -122,6 +122,10 @@ function onCloseModal(e) {
     return;
   }
 
+  window.removeEventListener('keydown', onEscCloseModal);
+  window.removeEventListener('keydown', onArrowRight);
+  window.removeEventListener('keydown', onArrowLeft);
+
   refs.lightbox.classList.remove('is-open');
   refs.lightboxImage.setAttribute('src', '');
   refs.lightboxImage.setAttribute('alt', '');
@@ -132,6 +136,10 @@ function onOverlayCloseModal(e) {
   if (!e.target.classList.contains('lightbox__overlay')) {
     return;
   }
+
+  window.removeEventListener('keydown', onEscCloseModal);
+  window.removeEventListener('keydown', onArrowRight);
+  window.removeEventListener('keydown', onArrowLeft);
 
   refs.lightbox.classList.remove('is-open');
   refs.lightboxImage.setAttribute('src', '');
@@ -145,6 +153,8 @@ function onEscCloseModal(e) {
   }
 
   window.removeEventListener('keydown', onEscCloseModal);
+  window.removeEventListener('keydown', onArrowRight);
+  window.removeEventListener('keydown', onArrowLeft);
 
   refs.lightbox.classList.remove('is-open');
   refs.lightboxImage.setAttribute('src', '');
@@ -155,10 +165,10 @@ function onArrowLeft(e) {
   if (e.code !== 'Arrowleft') {
     return;
   }
+    
+  refs.lightboxImage.setAttribute('src', e.target.currentIndex - 1);
+  refs.lightboxImage.setAttribute('alt', index++);
   
-
-  refs.lightboxImage.setAttribute('src', index - 1);
-  refs.lightboxImage.setAttribute('alt', index++); 
 
 };
 
@@ -166,9 +176,9 @@ function onArrowRight(e) {
   if (e.code !== 'Arrowleft') {
     return;
   }
-  
-  refs.lightboxImage.setAttribute('src', el.index + 1);
-  refs.lightboxImage.setAttribute('alt', el.index + 1); 
+  // e.target. = currentIndex + 1;
+  // refs.lightboxImage.setAttribute('src', e.target.currentIndex.value + 1);
+  // refs.lightboxImage.setAttribute('alt', el.index + 1); 
 
 };
 
@@ -177,9 +187,11 @@ function onFindIndex(e) {
     if (el.preview !== e.target.src) {
       return;
     }
-    const index = galleryItems.indexOf(el)
-    console.log(index);
-  });
+    const currentIndex = galleryItems.indexOf(el)
+    console.log(currentIndex);
+ });
+  
+    
 };
 
 
