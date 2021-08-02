@@ -114,7 +114,9 @@ function onOpenModal(e) {
   
   refs.lightbox.classList.add('is-open');
   refs.lightboxImage.setAttribute('src', e.target.dataset.source);
-  refs.lightboxImage.setAttribute('alt', e.target.alt);    
+  refs.lightboxImage.setAttribute('alt', e.target.alt);
+
+    
 };
 
 function onCloseModal(e) {
@@ -162,23 +164,29 @@ function onEscCloseModal(e) {
 };
 
 function onArrowLeft(e) {
-  if (e.code !== 'Arrowleft') {
+  if (e.code !== 'ArrowLeft') {
     return;
   }
-    
-  refs.lightboxImage.setAttribute('src', e.target.currentIndex - 1);
-  refs.lightboxImage.setAttribute('alt', index++);
+
   
+  if (currentIndex--) {
+    refs.lightboxImage.setAttribute('src', e.dataset.source);
+    refs.lightboxImage.setAttribute('alt', e.target.alt);
+   
+  }
+     console.log(element.children);
+   
 
 };
 
 function onArrowRight(e) {
-  if (e.code !== 'Arrowleft') {
+  if (e.code !== 'ArrowRight') {
     return;
   }
-  // e.target. = currentIndex + 1;
-  // refs.lightboxImage.setAttribute('src', e.target.currentIndex.value + 1);
-  // refs.lightboxImage.setAttribute('alt', el.index + 1); 
+  if (currentIndex++) {
+    refs.lightboxImage.setAttribute('src', e.target.dataset.source);
+    refs.lightboxImage.setAttribute('alt', e.target.alt);
+  }
 
 };
 
@@ -191,7 +199,8 @@ function onFindIndex(e) {
     console.log(currentIndex);
  });
   
-    
+  
+      
 };
 
 
